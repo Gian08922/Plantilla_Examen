@@ -1,0 +1,43 @@
+La primera vez que ejecutes GIT en el pc:
+git config --global user.email "you@example.com"
+git config --global user.name "Your name"
+
+git init
+git add -A
+git commit -m "mensaje del commit"
+git flow init
+para crear una feature nueva:
+git flow feature start NombreDeLaFeatureNueva
+para terminar la feature:
+git flow feature finish NombreDeLaFeatureNueva
+
+Crear repo en Github desde la consola con Token:
+ (el Token tiene que estar creado ya)
+ curl -u tunombredeusuariodegithub:tutoken https://api.github.com/user/repos -d '{"name":"NombreDelRepo","private":false}'
+
+para enlazar el repo que has creado: (ojo no copies el de github entero, solo esta linea)
+git remote add origin https://github.com/tunombredeusuariodegithub/NombreDelRepo.git
+
+para subir los cambios desde local a remoto:
+git push --all origin 
+
+por ejemplo para subir a una feature:
+git push -u origin feature/VentanaCliente  
+
+para actualizar el repo local con los cambios que haya en el remoto
+git pull -a
+
+
+
+git branch 			lista las ramas
+git branch -r			lista las ramas remotas
+git branch [branch-name]	crea una rama nueva
+git switch [branch-name]	Te cambia de rama 
+git restore "nombre de archivo"      elimina los cambios en ese archivo, y lo deja tal como estaba en el último commit 
+git merge [ branch ]	Fusiona la rama en la que estás con la rama indicada
+git merge [branch1] [branch2] Fusiona la rama branch1 con la rama branch2
+git branch -d [branch-name]		Borra la rama
+
+git status    muestra el estado de tu repo
+git log        muestra el historial del repo
+git log --graph   muestra el historial del repo de forma gráfica
