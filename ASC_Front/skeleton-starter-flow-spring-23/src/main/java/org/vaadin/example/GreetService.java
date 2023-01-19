@@ -46,8 +46,8 @@ public class GreetService implements Serializable {
         System.out.println(Datos.getZip_code());
         System.out.println(Datos.getTime_zone());
 
-        ArrayList<ClassDato> updatedSalud = api.PostCaso(Datos);
-        return updatedSalud;
+        ArrayList<ClassDato> updatedDato = api.PostCaso(Datos);
+        return updatedDato;
     }
 
     public ArrayList<ClassDato> Put(ClassDato Datos, Long ip) throws URISyntaxException, IOException, InterruptedException {
@@ -64,8 +64,21 @@ public class GreetService implements Serializable {
         System.out.println(Datos.getZip_code());
         System.out.println(Datos.getTime_zone());
 
-        ArrayList<ClassDato> updatedSalud = api.PutCaso(Datos, ip);
-        return updatedSalud;
+        ArrayList<ClassDato> updatedDato = api.PutCaso(Datos, ip);
+        return updatedDato;
+    }
+
+
+    public ArrayList<ClassDato> Delete(Long ip) throws URISyntaxException, IOException, InterruptedException {
+        IpApi api = new IpApi();
+        String resultsAPI = api.DeleteCaso(ip);
+
+        System.out.println(ip);
+
+        ArrayList<ClassDato> listaDatos = new Gson().fromJson(resultsAPI, new TypeToken<ArrayList<ClassDato>>() {
+        }.getType());;
+
+        return listaDatos;
     }
 
 

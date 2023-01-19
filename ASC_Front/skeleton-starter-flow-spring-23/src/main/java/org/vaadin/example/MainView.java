@@ -46,7 +46,7 @@ public class MainView extends VerticalLayout {
      */
     public MainView(@Autowired GreetService service) {
 
-        HorizontalLayout primeracapa=new HorizontalLayout();
+        HorizontalLayout primeracapa = new HorizontalLayout();
 
         primeracapa.setWidth("1100px");
         primeracapa.addClassName("left-content");
@@ -196,8 +196,7 @@ public class MainView extends VerticalLayout {
 
 
 
-
-        Button crearnuevo = new Button("CrearNuevoObjeto",
+        Button crearnuevo = new Button("Crear Nuevo Objeto",
                 pe-> {
                     status = new Span();
                     status.setVisible(false);
@@ -290,6 +289,73 @@ public class MainView extends VerticalLayout {
                 });
 
 
+        Button borrar = new Button("Borrar Objeto",
+                p-> {
+                    status = new Span();
+                    status.setVisible(false);
+                    nuevo.removeAll();
+
+
+                    Dialog dialog = new Dialog();
+
+                    TextField Ip_from = new TextField("Codigo de IP from para borrar");
+
+
+
+                    nuevo.add(Ip_from);
+                    nuevo.setResponsiveSteps(
+                            // Use one column by default
+                            new FormLayout.ResponsiveStep("0", 1),
+                            // Use two columns, if layout's width exceeds 500px
+                            new FormLayout.ResponsiveStep("500px", 2));
+                    // Stretch the username field over 2 columns
+
+
+
+                    dialog.add(nuevo);
+                    Button cancelar= new Button("Cancelar",
+                            cierre->{
+                                dialog.close();
+                            });
+
+                    Button confirmar1= new Button("Confirmar",
+                            confirmar->{
+
+                                ClassDato modificado = new ClassDato();
+
+                                System.out.println();
+                                System.out.println();
+                                System.out.println(Long.valueOf(Ip_from.getValue()));
+
+
+                                System.out.println();
+                                System.out.println("Los del service");
+
+
+                                try {
+                                    service.Delete(Long.valueOf(Ip_from.getValue()));
+                                    //grid.setItems(service.leeCasos());
+                                } catch (URISyntaxException | IOException ex) {
+                                    throw new RuntimeException(ex);
+                                } catch (InterruptedException ex) {
+                                    throw new RuntimeException(ex);
+                                }
+                                dialog.close();
+                            });
+
+
+                    dialog.add(nuevo);
+                    dialog.open();
+                    status.setVisible(false);
+
+                    dialogo.add(status);
+                    add(dialogo);
+                    nuevo.add(cancelar,confirmar1);
+
+
+                });
+
+
 
 
 
@@ -299,7 +365,7 @@ public class MainView extends VerticalLayout {
         primeracapa.add(grid);
 
 
-        add(primeracapa,crearnuevo);
+        add(primeracapa,crearnuevo,borrar);
 
 
 

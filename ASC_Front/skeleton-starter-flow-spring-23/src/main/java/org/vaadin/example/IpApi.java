@@ -92,6 +92,24 @@ public ArrayList<ClassDato> PostCaso(ClassDato Datos) throws URISyntaxException,
 
     }
 
+    public String DeleteCaso(Long ip) throws URISyntaxException, IOException, InterruptedException {
+
+        String fullUrl = String.format(urlPrefix,ip, "");
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI(fullUrl))
+                .DELETE()
+                .build();
+
+        HttpResponse<String> response = HttpClient
+                .newBuilder()
+                .build()
+                .send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body());
+        return response.body();
+
+    }
+
 }
 
 

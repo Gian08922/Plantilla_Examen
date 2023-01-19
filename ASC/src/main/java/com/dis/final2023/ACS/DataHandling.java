@@ -62,6 +62,9 @@ public class DataHandling {
         LectorJSON lector = new LectorJSON();
         List<ClassDato> usuario = lector.leeFicheroJson();
 
+        System.out.println();
+        System.out.println(id);
+
 
         for (int i = 0; i < usuario.size(); i++) {
             if (usuario.get(i).getIp_from().equals(id)) {
@@ -69,7 +72,7 @@ public class DataHandling {
                 break;
             }
         }
-        lector.EscribirEnJSON(usuario, "./src/main/resources/LocalizaIP.json");
+        lector.EscribirEnJSON(usuario, "./src/main/resources/FicheroBorrandoCosas.json");
     }
 
 
