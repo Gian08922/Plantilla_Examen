@@ -70,9 +70,8 @@ public class MainView extends VerticalLayout {
         grid.addColumn(ClassDato::getTime_zone).setHeader("TimeZone");
 
 
-
-
         ArrayList<ClassDato> people = null;
+/*
         try {
             people = service.leeCasos();
         } catch (URISyntaxException e) {
@@ -82,6 +81,24 @@ public class MainView extends VerticalLayout {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+ */
+        Button BotonMostrar = new Button("Mostrar",
+                mostrar1 -> {
+
+                    try {
+                        //results.removeAll();
+
+                        grid.setItems(service.leeCasos());
+                        grid.getColumns();
+
+                    } catch (Exception ex) {
+                        System.err.println("Entro en el catch");
+                    }
+
+                });
+
+
 
 
         grid.addItemDoubleClickListener(e->{
@@ -361,11 +378,11 @@ public class MainView extends VerticalLayout {
 
 
 
-        grid.setItems(people);
+        //grid.setItems(people);
         primeracapa.add(grid);
 
 
-        add(primeracapa,crearnuevo,borrar);
+        add(primeracapa, BotonMostrar, crearnuevo,borrar);
 
 
 

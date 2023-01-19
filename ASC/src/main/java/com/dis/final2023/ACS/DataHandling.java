@@ -10,7 +10,9 @@ public class DataHandling {
         ArrayList<ClassDato> usuario =  lector.leeFicheroJson();    //declar una lista de tipo classdato1 que busque al usuario
         usuario.add(nuevoCodigo);                               //Añado al nuevo usuario a la lista
 
-        lector.EscribirEnJSON(usuario, "./src/main/resources/FicheroResultado.json");
+        //lector.EscribirEnJSON(usuario, "./src/main/resources/FicheroResultado.json");         //Por si no queremos modificar el fichero original
+
+        lector.EscribirEnJSON(usuario,"./src/main/resources/LocalizaIP.json");
 
         //lector.EscribirEnJSON((List<ClassDato>) nuevoCodigo, "./src/main/resources/FicheroResultado.json");
 
@@ -52,7 +54,9 @@ public class DataHandling {
             }
         }
 
-        lector.EscribirEnJSON(usuario,"./src/main/resources/FicheroModificado.json");            //Escribo en el fichero JSON
+        //lector.EscribirEnJSON(usuario,"./src/main/resources/FicheroModificado.json");            //Escribo en el fichero JSON
+
+        lector.EscribirEnJSON(usuario,"./src/main/resources/LocalizaIP.json");
 
 
         return usuario;                //devuelvo la lista
@@ -72,7 +76,9 @@ public class DataHandling {
                 break;
             }
         }
-        lector.EscribirEnJSON(usuario, "./src/main/resources/FicheroBorrandoCosas.json");
+        //lector.EscribirEnJSON(usuario, "./src/main/resources/FicheroBorrandoCosas.json");       //Escribo en el fichero JSON
+
+        lector.EscribirEnJSON(usuario,"./src/main/resources/LocalizaIP.json");
     }
 
 
