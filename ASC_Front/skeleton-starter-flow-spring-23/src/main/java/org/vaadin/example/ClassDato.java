@@ -26,6 +26,10 @@ public class ClassDato {
         this.time_zone = time_zone;
     }
 
+    public ClassDato() {
+
+    }
+
     public Long getIp_from() {
         return ip_from;
     }

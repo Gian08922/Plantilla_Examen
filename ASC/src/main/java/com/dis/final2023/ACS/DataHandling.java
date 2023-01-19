@@ -9,7 +9,10 @@ public class DataHandling {
         LectorJSON lector = new LectorJSON();                   //me declaro un objeto del tipo json
         ArrayList<ClassDato> usuario =  lector.leeFicheroJson();    //declar una lista de tipo classdato1 que busque al usuario
         usuario.add(nuevoCodigo);                               //Añado al nuevo usuario a la lista
-        lector.EscribirEnJSON((List<ClassDato>) nuevoCodigo, "./src/main/resources/FicheroResultado.json");
+
+        lector.EscribirEnJSON(usuario, "./src/main/resources/FicheroResultado.json");
+
+        //lector.EscribirEnJSON((List<ClassDato>) nuevoCodigo, "./src/main/resources/FicheroResultado.json");
 
         return usuario;                                         //devuelvo la lista
     }
@@ -36,7 +39,7 @@ public class DataHandling {
             }
         }
 
-        lector.EscribirEnJSON(usuario,"./src/main/resources/LocalizaIP.json");            //Escribo en el fichero JSON
+        lector.EscribirEnJSON(usuario,"./src/main/resources/FicheroModificado.json");            //Escribo en el fichero JSON
 
 
         return usuario;                //devuelvo la lista
