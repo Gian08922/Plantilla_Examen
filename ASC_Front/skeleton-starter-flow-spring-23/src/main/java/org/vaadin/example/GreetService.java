@@ -34,12 +34,36 @@ public class GreetService implements Serializable {
 
     public ArrayList<ClassDato> Post(ClassDato Datos) throws URISyntaxException, IOException, InterruptedException {
         IpApi api = new IpApi();
+
+        System.out.println(Datos.getIp_from());
+        System.out.println(Datos.getIp_to());
+        System.out.println(Datos.getCountry_name());
+        System.out.println(Datos.getCountry_code());
+        System.out.println(Datos.getRegion_name());
+        System.out.println(Datos.getCity_name());
+        System.out.println(Datos.getLatitude());
+        System.out.println(Datos.getLongitude());
+        System.out.println(Datos.getZip_code());
+        System.out.println(Datos.getTime_zone());
+
         ArrayList<ClassDato> updatedSalud = api.PostCaso(Datos);
         return updatedSalud;
     }
 
     public ArrayList<ClassDato> Put(ClassDato Datos, Long ip) throws URISyntaxException, IOException, InterruptedException {
         IpApi api = new IpApi();
+
+        System.out.println(Datos.getIp_from());
+        System.out.println(Datos.getIp_to());
+        System.out.println(Datos.getCountry_name());
+        System.out.println(Datos.getCountry_code());
+        System.out.println(Datos.getRegion_name());
+        System.out.println(Datos.getCity_name());
+        System.out.println(Datos.getLatitude());
+        System.out.println(Datos.getLongitude());
+        System.out.println(Datos.getZip_code());
+        System.out.println(Datos.getTime_zone());
+
         ArrayList<ClassDato> updatedSalud = api.PutCaso(Datos, ip);
         return updatedSalud;
     }

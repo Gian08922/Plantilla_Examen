@@ -120,7 +120,7 @@ public class MainView extends VerticalLayout {
 
 
 
-            formulario.add(Ip_from,Ip_To,CountryCode,RegionName,ZipCode,CityName, TimeZone,Latitude,Longitude);
+            formulario.add(Ip_from, Ip_To, CountryCode, CountryName, RegionName, CityName, Latitude, Longitude, ZipCode, TimeZone);
             formulario.setResponsiveSteps(
                     // Use one column by default
                     new FormLayout.ResponsiveStep("0", 1),
@@ -140,20 +140,6 @@ public class MainView extends VerticalLayout {
 
                         ClassDato modificado = new ClassDato();
 
-                        Ip_from.setValue(String.valueOf(fila.getIp_from()));
-                        Ip_from.setEnabled(false);
-                        Ip_To.setValue(String.valueOf(fila.getIp_to()));
-                        CountryCode.setValue(String.valueOf(fila.getCountry_code()));
-                        CountryName.setValue(String.valueOf(fila.getCountry_name()));
-                        RegionName.setValue(String.valueOf(fila.getRegion_name()));
-                        CityName.setValue(fila.getCity_name());
-                        Latitude.setValue(String.valueOf(fila.getLatitude()));
-                        Longitude.setValue(String.valueOf(fila.getLongitude()));
-                        ZipCode.setValue(fila.getZip_code());
-                        TimeZone.setValue(fila.getTime_zone());
-
-
-
                         modificado.setIp_from(Long.valueOf(Ip_from.getValue()));
                         modificado.setIp_to(Long.valueOf(Ip_To.getValue()));
                         modificado.setCountry_code(String.valueOf(CountryCode.getValue()));
@@ -165,6 +151,21 @@ public class MainView extends VerticalLayout {
                         modificado.setZip_code(String.valueOf(ZipCode.getValue()));
                         modificado.setTime_zone(String.valueOf(TimeZone.getValue()));
 
+
+
+                        System.out.println(modificado.getIp_from());
+                        System.out.println(modificado.getIp_to());
+                        System.out.println(modificado.getCountry_name());
+                        System.out.println(modificado.getCountry_code());
+                        System.out.println(modificado.getRegion_name());
+                        System.out.println(modificado.getCity_name());
+                        System.out.println(modificado.getLatitude());
+                        System.out.println(modificado.getLongitude());
+                        System.out.println(modificado.getZip_code());
+                        System.out.println(modificado.getTime_zone());
+
+                        System.out.println();
+                        System.out.println("Los del service");
 
                         try {
                             service.Put(modificado, Long.valueOf(Ip_from.getValue()));
@@ -248,6 +249,22 @@ public class MainView extends VerticalLayout {
                                 modificado.setLongitude(Double.parseDouble(Longitude.getValue()));
                                 modificado.setZip_code(String.valueOf(ZipCode.getValue()));
                                 modificado.setTime_zone(String.valueOf(TimeZone.getValue()));
+
+
+                                System.out.println(modificado.getIp_from());
+                                System.out.println(modificado.getIp_to());
+                                System.out.println(modificado.getCountry_name());
+                                System.out.println(modificado.getCountry_code());
+                                System.out.println(modificado.getRegion_name());
+                                System.out.println(modificado.getCity_name());
+                                System.out.println(modificado.getLatitude());
+                                System.out.println(modificado.getLongitude());
+                                System.out.println(modificado.getZip_code());
+                                System.out.println(modificado.getTime_zone());
+
+                                System.out.println();
+                                System.out.println("Los del service");
+
 
                                 try {
                                     service.Post(modificado);

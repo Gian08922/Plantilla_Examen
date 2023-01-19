@@ -26,6 +26,19 @@ public class DataHandling {
 
         for(ClassDato clase : usuario){                        //me declaro un foreach para recorrer la lista con todos los elementos en busca del codigo de geometria que quiero
             if(clase.getIp_from().equals(ip)){         //si lo encuentro , modifico los sets
+
+                System.out.println(nuevoCodigo.getIp_from());
+                System.out.println(nuevoCodigo.getIp_to());
+                System.out.println(nuevoCodigo.getCountry_name());
+                System.out.println(nuevoCodigo.getCountry_code());
+                System.out.println(nuevoCodigo.getRegion_name());
+                System.out.println(nuevoCodigo.getCity_name());
+                System.out.println(nuevoCodigo.getLatitude());
+                System.out.println(nuevoCodigo.getLongitude());
+                System.out.println(nuevoCodigo.getZip_code());
+                System.out.println(nuevoCodigo.getTime_zone());
+
+
                 clase.setIp_to(nuevoCodigo.getIp_to());
                 clase.setCountry_code(nuevoCodigo.getCountry_code());
                 clase.setCountry_name(nuevoCodigo.getCountry_name());
