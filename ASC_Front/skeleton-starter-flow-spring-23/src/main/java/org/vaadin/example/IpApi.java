@@ -11,7 +11,7 @@ public class IpApi {
     private static final String urlPrefix = "http://localhost:8080/%s/%s";
 
     public String getDatos() throws URISyntaxException, IOException, InterruptedException {
-        String fullUrl = String.format(urlPrefix, "greeting","");
+        String fullUrl = String.format(urlPrefix, "Fichero1","");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(new URI(fullUrl))
                 .GET()

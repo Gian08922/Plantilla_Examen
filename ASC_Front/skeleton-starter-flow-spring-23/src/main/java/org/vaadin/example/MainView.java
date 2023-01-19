@@ -4,13 +4,8 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.vaadin.flow.component.Key;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 import java.io.IOException;
@@ -51,20 +46,20 @@ public class MainView extends VerticalLayout {
         primeracapa.addClassName("left-content");
 
 
-        Grid<Datos> grid = new Grid<>(Datos.class, false);
-        grid.addColumn(Datos::getIp_from).setHeader("Ip_from");
-        grid.addColumn(Datos::getIp_to).setHeader("Ip_To");
-        grid.addColumn(Datos::getCountry_code).setHeader("CountryCode");
-        grid.addColumn(Datos::getCountry_name).setHeader("CuntryName");
-        grid.addColumn(Datos::getRegion_name).setHeader("RegionName");
-        grid.addColumn(Datos::getCity_name).setHeader("CityNAme");
-        grid.addColumn(Datos::getZip_code).setHeader("ZipCode");
-        grid.addColumn(Datos::getTime_zone).setHeader("TimeZone");
+        Grid<ClassDato> grid = new Grid<>(ClassDato.class, false);
+        grid.addColumn(ClassDato::getIp_from).setHeader("Ip_from");
+        grid.addColumn(ClassDato::getIp_to).setHeader("Ip_To");
+        grid.addColumn(ClassDato::getCountry_code).setHeader("CountryCode");
+        grid.addColumn(ClassDato::getCountry_name).setHeader("CuntryName");
+        grid.addColumn(ClassDato::getRegion_name).setHeader("RegionName");
+        grid.addColumn(ClassDato::getCity_name).setHeader("CityNAme");
+        grid.addColumn(ClassDato::getZip_code).setHeader("ZipCode");
+        grid.addColumn(ClassDato::getTime_zone).setHeader("TimeZone");
 
 
 
 
-        ArrayList<Datos> people = null;
+        ArrayList<ClassDato> people = null;
         try {
             people = service.leeCasos();
         } catch (URISyntaxException e) {
